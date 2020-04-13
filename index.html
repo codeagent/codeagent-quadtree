@@ -1,0 +1,100 @@
+<style>
+	* {
+		font-family: Lato;
+		font-size: 14px;
+		color: #444;
+	}
+
+	.draggable {
+		position: absolute;
+		width: 12px;
+		height: 12px;
+		cursor: pointer;
+		border-radius: 50%;
+		z-index: 9999;
+		user-drag: none;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+
+	#container {
+		position: relative;
+		width: 1000px;
+		height: 1000px;
+		display: block;
+		margin: 0 auto;
+		border: 1px dashed #ddd;
+	}
+
+	.grid {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.grid>* {
+		flex: 1;
+	}
+
+	label {
+		padding-right: 16px;
+		width: 60px;
+		display: inline-block;
+	}
+
+	small {
+		display: inline-block;
+		width: 16px;
+		font-size: 10px;
+	}
+</style>
+
+<div class="grid">
+	<div style="min-width: 280px; flex: 0">
+		<div id="stat">
+			<div>Total: <strong id="total"></strong></div>
+			<div>Visible: <strong id="visible"></strong></div>
+			<div>Brute checks: <strong id="brute"></strong></div>
+			<div>Quadtree checks: <strong id="quad"></strong></div>
+		</div>
+
+		<br/>
+
+		<div id="form">
+			<div>
+				<label>Total</label>
+				<small>1</small>
+				<input type="range" min="0" max="512" id="total" step="16"/>
+				<small>512</small>
+			</div>
+
+			<div>
+				<label>Fov</label>
+				<small>10</small>
+				<input type="range" min="10" max="180" id="fov" step="10"/>
+				<small>180</small>
+			</div>
+
+			<div>
+				<label>Near</label>
+				<small>10</small>
+				<input type="range" min="10" max="800" id="near" step="10"/>
+				<small>800</small>
+			</div>
+
+			<div>
+				<label>Far</label>
+				<small>10</small>
+				<input type="range" min="10" max="800" id="far" step="10"/>
+				<small>800</small>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div id="container">
+			<canvas id="canvas" width='1000' height='1000'></canvas>
+		</div>
+	</div>
+</div>
